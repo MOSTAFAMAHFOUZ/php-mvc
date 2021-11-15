@@ -1,0 +1,10 @@
+<IfModule mod_rewrite.c>    
+    Options +FollowSymLinks
+    RewriteEngine On
+    # RewriteBase /
+    RewriteCond %{REQUEST_URI} !-f
+    RewriteCond %{REQUEST_URI} !-d
+    RewriteCond %{REQUEST_URI} !-l
+    RewriteRule ^public/ - [L]
+    RewriteRule ^(.*)$ /public/index.php?$1 [QSA]
+</IfModule>
